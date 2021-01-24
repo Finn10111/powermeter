@@ -1,7 +1,6 @@
 import sys
 import os
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib/python3.9/site-packages'))
-sys.path.insert(1, os.path.dirname(__file__))
+sys.path.insert(0, os.path.dirname(__file__))
 activate_this = os.path.join(os.path.dirname(__file__), 'bin/activate_this.py')
 with open(activate_this) as file_:
     exec(file_.read(), dict(__file__=activate_this))
