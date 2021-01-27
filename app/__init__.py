@@ -6,7 +6,6 @@ from flask_migrate import Migrate
 #from flask_jwt_extended import JWTManager
 
 
-api = Api()
 db = SQLAlchemy()
 ma = Marshmallow()
 #jwt = JWTManager()
@@ -23,6 +22,7 @@ def create_app(cfg='default'):
 
     from . import resources
 
+    api = Api()
     api.init_app(app)
     db.init_app(app)
     ma.init_app(app)
