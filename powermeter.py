@@ -21,7 +21,7 @@ if os.getenv("INFLUXDB_ENABLED", False).lower() == "true":
     client = influxdb_client.InfluxDBClient(url=url, token=token, org=org)
     write_api = client.write_api(write_options=SYNCHRONOUS)
 
-SENSOR_PIN = 27
+SENSOR_PIN = os.environ.get("SENSOR_PIN")
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(SENSOR_PIN, GPIO.IN)
 

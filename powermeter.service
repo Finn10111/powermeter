@@ -4,6 +4,7 @@ Description=PowerMeter Service
 [Service]
 Type=simple
 User=root
+EnvironmentFile=/etc/powermeter-environment
 ExecStart=/usr/local/bin/powermeter.py
 Restart=always
 RestartSec=30
