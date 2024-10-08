@@ -20,7 +20,7 @@ GND: GND
 
 ## Software setup
 
-- Copy the `.env.example` to `.env` and change it to your needs.
+- Copy the `.env.example` to `/etc/powermeter-environment` and change it to your needs.
 - Acivate at least InfluxDB (which I would recommend) or Flask output.
 
 Clone this repository and create a virtualenv within it:
@@ -28,8 +28,20 @@ Clone this repository and create a virtualenv within it:
 ```
 git clone https://code.f2n.me/finn/powermeter.git
 cd powermeter
+cp .env.example /etc/powermeter-environment
+cp powermeter.service /etc/systemd/system/powermeter.service
+systemctl enable powermeter
+systemctl start powermeter
+```
+
+For Flask app also to the following steps:
+
+```
 virtualenv .
 pip install -r requirements.txt
+cp apache2_sample_config.conf /etc/apache2/sites-available/powermeter.conf # modifiy to fit your needs
+a2ensite powermeter
+systemctl reload apache2
 ```
 
 ## Developing (Flask app)
@@ -41,6 +53,12 @@ export FLASK_ENV=development
 export APP_DEVELOPMENT_DATABASE_URI=postgres://username:passwort@hostname/database
 flask run
 ```
+
+## Future thoughts
+
+- build container for flask app
+- Microcontroller edition
+- and more
 
 ## Screenshots
 
