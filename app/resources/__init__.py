@@ -11,4 +11,3 @@ def register_blueprints(api):
 
         api.register_blueprint(resource_blp,
                                url_prefix=f'/{resource_blp.url_prefix}')
-

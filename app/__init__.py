@@ -3,12 +3,10 @@ from flask_smorest import Api
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-#from flask_jwt_extended import JWTManager
 
 
 db = SQLAlchemy()
 ma = Marshmallow()
-#jwt = JWTManager()
 
 
 def create_app(cfg='default'):
@@ -26,9 +24,7 @@ def create_app(cfg='default'):
     api.init_app(app)
     db.init_app(app)
     ma.init_app(app)
-    #jwt.init_app(app)
     Migrate(app, db)
     resources.register_blueprints(api)
 
     return app
-

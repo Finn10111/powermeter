@@ -32,4 +32,3 @@ class ImpulseById(MethodView):
         impulse = Impulse.query.filter_by(id=impulse_id).first()
         db.session.delete(impulse)
         db.session.commit()
-

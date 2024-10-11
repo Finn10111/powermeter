@@ -1,7 +1,6 @@
 from marshmallow import SchemaOpts
 from marshmallow import pre_load, post_dump
 from marshmallow_sqlalchemy import ModelSchemaOpts, ModelConverter, ModelSchema
-from .. import ma
 from .. import db
 
 
@@ -23,7 +22,6 @@ class NamespaceOpts(ModelSchemaOpts):
         self.include_relationships = True
 
 
-#class NamespacedSchema(ma.SQLAlchemySchema):
 class NamespacedSchema(ModelSchema):
     OPTIONS_CLASS = NamespaceOpts
 
@@ -42,4 +40,3 @@ class NamespacedSchema(ModelSchema):
         else:
             key = self.opts.plural_name if many else self.opts.name
             return {key: data}
-

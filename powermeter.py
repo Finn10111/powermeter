@@ -4,8 +4,8 @@ import time
 import datetime
 import requests
 
-import influxdb_client, os
-from influxdb_client import InfluxDBClient, Point, WritePrecision
+import influxdb_client
+import os
 from influxdb_client.client.write_api import SYNCHRONOUS
 
 
@@ -42,7 +42,7 @@ def flaskapp():
 
 def influxdb():
     point = (
-        Point("electricity")
+        influxdb_client.Point("electricity")
         .field("consumption", 2)
     )
     write_api.write(bucket=bucket, org="finn", record=point)
