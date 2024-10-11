@@ -23,7 +23,7 @@ GND: GND
 - Copy the `.env.example` to `/etc/powermeter-environment` and change it to your needs.
 - Acivate at least InfluxDB (which I would recommend) or Flask output.
 
-Clone this repository and create a virtualenv within it:
+Clone this repository, configure `.env` file, setup systemd service:
 
 ```
 git clone https://code.f2n.me/finn/powermeter.git
